@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ Hình tròn</title>
+</head>
+<body>
+    <script>
+        function Circle(radius) {
+            this.radius = radius;
+
+            this.getRadius = function () {
+                return this.radius;
+            };
+
+            this.getArea = function () {
+                return this.radius * this.radius * Math.PI;
+
+            };
+        }
+        var circle = new Circle(2)
+        var radius = circle.getRadius();
+        var area = circle.getArea();
+        alert("radius: " + radius + " Area: " + area);
+    </script>
+</body>
+</html>

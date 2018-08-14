@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ hình chữ nhật</title>
+</head>
+<body>
+    <script>
+        var Rectangle = function (width, height) {
+            this.width = width;
+            this.height = height;
+
+            this.getWidth = function () {
+                return width;
+            };
+            this.getHeight = function () {
+                return height;
+            };
+           this.getArea = function () {
+               return height * width;
+           };
+           this.getPerimeter = function () {
+                return (height * 2) + (width * 2);
+            };
+           this.changeWidth = function (width_new) {
+               width = width_new;
+           };
+            this.changeHeight = function (height_new) {
+                height = height_new;
+            };
+        };
+        var rectangle = new Rectangle(7,3);
+        var width = rectangle.getWidth();
+        var height = rectangle.getHeight();
+        var area = rectangle.getArea();
+        var perimeter = rectangle.getPerimeter();
+       /* alert("chiều dài là: " + width + "chiều rộng là: " + height);
+        for (i = 0; i < height; i++){
+            for (j = 0; j < width; j++){
+                console.log('#');
+            }
+            document.write("<br>")
+        };
+        document.write("diện tích là : " + area + "chu vi là: " + perimeter);*/
+        rectangle.changeHeight(20);
+        rectangle.changeWidth(10);
+        alert(width);
+    </script>
+</body>
+</html>

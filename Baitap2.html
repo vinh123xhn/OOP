@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyển nhiệt độ</title>
+</head>
+<body>
+<script>
+    var Temperature = function (celsius,){
+        this.celsius = celsius;
+
+        this.getCelsius = function () {
+            return celsius;
+        };
+        this.getCelsiusToFahrenheit = function () {
+            fahrenheit = (celsius * 9)/5 + 32;
+            return fahrenheit;
+        };
+
+        this.getFahrenheitTokelvin = function () {
+            kelvin = celsius + 273 ;
+            return kelvin;
+        };
+    };
+    var temperature = new Temperature(25);
+    var celsius = temperature.getCelsius();
+    var ToF = temperature.getCelsiusToFahrenheit();
+    var ToK = temperature.getFahrenheitTokelvin();
+    alert("nhiệt độ C là: " + celsius + " nhiệt độ F là:" + ToF + " nhiệt độ K là: " + ToK);
+
+</script>
+</body>
+</html>
