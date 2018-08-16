@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Build Mobile</title>
+</head>
+<body>
+    <input type="button" onclick="isMobileon1()" value="trạng thái">
+    <input type="button" onclick="turnon()" value="bật">
+    <input type="button" onclick="turnoff()" value="tắt">
+    <input type="button" onclick="chargeOn()" value="sạc">
+    <input type="button" onclick="getMessenger1()" value="gửi tin nhắn">
+    <input type="button" onclick="getMessengerM1toM2()" value="gửi tin nhắn đến số điện thoại khác">
+    <input type="button" onclick="seeMessengerto()" value="xem tin nhắn đi">
+    <input type="button" onclick="seeMessengeron()" value="xem tin nhắn đến">
+    <script>
+        function Mobile (battery, memo1, memo2, memo3, messengertoon) {
+            this.battery = battery;
+            this.memo1 = memo1;
+            this.memo2 = memo2;
+            this.memo3 = memo3;
+            this.messengertoon = messengertoon;
+            this.isMobileon = function () {
+                if (battery > 0) {
+                    alert("máy 1 đang bật");
+                    console.log("phần trăm pin là: " +battery)
+                }
+                else{
+                    alert("máy 2 đang tắt");
+                }
+                }
+                this.getturnOn = function () {
+                    alert('Điện thoại đã bật');
+                }
+                this.getturnOff = function () {
+                    alert('Điện thoại đã tắt');
+                }
+                this.getchargeOn = function () {
+                    alert("điện thoại đang sạc");
+                    battery +=1;
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getMessenger = function () {
+                    memo1 -= 1;
+                    alert("đang soạn tin nhắn");
+                    console.log("vùng nhớ tin nhắn đang soạn thảo: " + memo1);
+                    battery -= 1;
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getMessengerto = function () {
+                    memo2 -= 1;
+                    alert("tin nhắn đã gửi");
+                    console.log("vùng nhớ tin nhắn đi: " +memo2);
+                    battery -= 1;
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getReceivemessages = function () {
+                    memo3 -= 1;
+                    alert("đã nhận tin nhắn");
+                    console.log("vùng nhớ tin nhắn đến: " + memo3);
+                    battery -= 1;
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getMessengerto1 = function () {
+                    messengertoon = prompt("nhập tin nhắn nhé", '');
+                    console.log("tin nhắn đi: " + messengertoon)
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getMessengeron1 = function () {
+                    console.log("tin nhắn đến là:" + messengertoon)
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getMessengerto2 = function () {
+                    alert("tin nhắn đi là" + messengertoon);
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+                this.getMessengeron2 = function () {
+                    alert("tin nhắn đến là" + messengertoon);
+                    console.log ("phần trăm pin là: " + battery + "%");
+                }
+            }
+
+
+
+
+            var mobile1 = new Mobile(50, 100, 100, 100);
+            var mobile2 = new Mobile(60,100,100,100);
+                function isMobileon1() {
+                    mobile1.isMobileon();
+                    mobile2.isMobileon();
+                }
+                function turnon() {
+                    mobile1.getturnOn()
+                }
+                function turnoff() {
+                    mobile1.getturnOff()
+                }
+                function chargeOn() {
+                    mobile1.getchargeOn();
+                }
+                function getMessenger1() {
+                    mobile1.getMessenger();
+                    prompt("nhập tin nhắn muốn gửi",'');
+                    mobile1.getMessengerto();
+                }
+                function getMessengerM1toM2() {
+                    mobile1.getMessenger();
+                    mobile1.getMessengerto1()
+                    mobile1.getMessengerto();
+                    mobile2.getReceivemessages();
+                    mobile1.getMessengeron1();
+                }
+                function seeMessengerto() {
+                    mobile1.getMessengerto2();
+                }
+                function seeMessengeron() {
+                    mobile1.getMessengeron2();
+                }
+
+    </script>
+</body>
+</html>

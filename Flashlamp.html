@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashlamp</title>
+</head>
+<body>
+    <script>
+        var Battery = function (energy) {
+
+            this.energy = energy;
+
+            this.setEnery = function (_energy) {
+                this.energy = _energy;
+            }
+
+            this.getEnery = function () {
+                return this.energy;
+            }
+
+            this.decreaseEnery = function () {
+                this.energy = this.energy - 1;
+            }
+
+        }
+
+        var FlashLamp = function () {
+            this.battery = null;
+            this.status = false;
+
+            this.setBattery = function (battery_) {
+                this.battery = battery_;
+            }
+
+            this.getBattery = function () {
+                return this.battery;
+            }
+
+            this.turnOn = function () {
+                if(this.battery.getEnery() > 0) {
+                    this.status = true;
+                    this.light();
+                    this.battery.decreaseEnery();
+                }else{
+                    console.log("Het pin!")
+                }
+            }
+
+            this.turnOff = function () {
+                this.status = false;
+                console.log("Tat den!");
+            }
+
+            this.light = function () {
+                if(this.status){
+                    console.log("Den sang!")
+                }
+            }
+        }
+
+        //Tao doi tuong pin
+        var battery1 = new Battery(100);
+        //Tao doi tuong den
+        var flashLamp = new FlashLamp();
+        //Lap pin vao den
+        flashLamp.setBattery(battery1);
+        //bat den
+        flashLamp.turnOn();
+        //tat den
+        flashLamp.turnOff();
+    </script>
+</body>
+</html>
